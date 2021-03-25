@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	router "rest-api/http"
+)
+
+var httpRouter = router.NewMuxRouter()
 
 func main() {
-	fmt.Println("Hello,Welcome to Go")
+	const port string = "8000"
+	httpRouter.SERVE(port)
 }
