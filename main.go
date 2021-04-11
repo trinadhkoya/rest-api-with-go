@@ -7,8 +7,6 @@ import (
 
 
 func main() {
-
-	fmt.Println("Hey! ")
 	http.HandleFunc("/", helloWorld)
 	http.HandleFunc("/status", helloWorld)
 	http.ListenAndServe(":5000", nil)
