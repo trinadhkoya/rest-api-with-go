@@ -29,7 +29,6 @@ func NewMuxRouter() Router {
 
 func (m muxRouter) GET(uri string, f func(w http.ResponseWriter, r *http.Request)) {
 	muxDispatcher.HandleFunc(uri, f).Methods("GET")
-	muxDispatcher.HandleFunc(uri, f).Methods("GET")
 }
 
 func (m muxRouter) POST(uri string, f func(w http.ResponseWriter, r *http.Request)) {

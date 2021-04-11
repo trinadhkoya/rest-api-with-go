@@ -1,17 +1,19 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"rest-api/controller"
+	router "rest-api/http"
 )
 
+var httpRouter router.Router = router.NewMuxRouter()
+var utilController controller.UtilsController = controller.NewUtilsController()
 
 func main() {
+	const port string = ":5000"
 
-	http.HandleFunc("/", helloWorld)
-	http.ListenAndServe(":5001", nil)
-}
+	httpRouter.GET("/health", utilController.GetHealth)
+	httpRouter.GET("/", utilController.Welcome)
+	httpRouter.GET("/status", utilController.GetHealth)
 
-func helloWorld(writer http.ResponseWriter, request *http.Request) {
-	fmt.Fprintf(writer, "Hello! Go...")
+	httpRouter.SERVE(port)
 }
