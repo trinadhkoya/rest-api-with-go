@@ -1,5 +1,5 @@
 app_name: "rest-api-dev"
-server_port: "5000"
+server_port: ":5000"
 # MongoDB URI
 db_uri: "mongodb+srv://trinadhkoya:iP%40ssword77@cluster0.khuaz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
